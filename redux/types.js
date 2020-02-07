@@ -1,4 +1,2 @@
-export const REGISTER = 'register';
-export const AUTHENTICATE = 'authenticate';
-export const DEAUTHENTICATE = 'deauthenticate;
-export const USER = 'user';
+export const GET_POSTS='get_posts';
+export const GET_COMMENTS='get_comments';

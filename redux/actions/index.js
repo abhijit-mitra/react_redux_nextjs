@@ -1,5 +1,3 @@
-import auth from './auth';
+import {getPosts} from './posts';
 
-export default {
-  ...auth,
-};
+export {getPosts};
