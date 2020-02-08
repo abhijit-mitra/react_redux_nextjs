@@ -3,25 +3,25 @@ import Link from 'next/link';
 import { connect } from 'react-redux';
 
 import {getPosts} from '../redux/actions';
+import {Button} from '../components/atoms/';
 
-const Index = memo((props) => {
-  useEffect(()=>{
-    props.getPosts();
-  },[])
-  return(
+const Index = memo((props) => (
     <>
-      <h1>{props.isFetching?'...Loading':props.data&& props.data.size}</h1>
-      <Link href='posts'>
-        <a>Posts</a>
-      </Link>
+      <h1>Home Page</h1>
+      <div>
+        <Link href='posts'>
+          <a>Posts</a>
+        </Link>
+      </div>
+      <div>
+        <Link href='comments'>
+          <a>Comments</a>
+        </Link>
+      </div>
+      <Button>
+        Enjoy
+      </Button>
     </>
-  );
-});
+  ));
 
-Index.getInitialProps = async function(ctx) {
-  if(ctx.isServer){
-      await ctx.store.dispatch(getPosts());
-  }
-};
-
-export default connect(state=>state.posts,{getPosts})(Index);
+export default Index;

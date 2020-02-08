@@ -1,0 +1,8 @@
+.primary{
+  border: 2px solid black;
+  padding: 10px 20px;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+}

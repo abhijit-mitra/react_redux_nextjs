@@ -1,16 +1,15 @@
 import {memo, useEffect, useState} from 'react';
-import Link from 'next/link';
 import { connect } from 'react-redux';
 
-import {getPosts} from '../../redux/actions';
+import {getComments} from '../../redux/actions';
 
 const Posts = memo((props) => {
   useEffect(()=>{
-    props.getPosts();
+    props.getComments();
   },[])
   return(
     <>
-      <h1>Posts Screen</h1>
+      <h1>Posts</h1>
       <h1>{props.isFetching?'...Loading':props.data&& props.data.size}</h1>
     </>
   );
@@ -18,8 +17,8 @@ const Posts = memo((props) => {
 
 Posts.getInitialProps = async function(ctx) {
   if(ctx.isServer){
-      await ctx.store.dispatch(getPosts());
+      await ctx.store.dispatch(getComments());
   }
 };
 
-export default connect(state=>state.posts,{getPosts})(Posts);
+export default connect(state=>state.comments,{getComments})(Posts);
