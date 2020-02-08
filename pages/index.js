@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 import {getPosts} from '../redux/actions';
-// import Link from 'next/link';
-//
+import Link from 'next/link';
+
 // function HomePage({ stars }) {
 //   return (
 //     <div>
@@ -25,12 +25,13 @@ import {getPosts} from '../redux/actions';
 import { connect } from 'react-redux';
 import initialize from '../utils/initialize';
 
-const Index = (props) => console.log(props)||(
-  <h1>HI</h1>
+const Index = (props) => console.log(props)||
+  (
+  <h1>{'Hi'}</h1>
 );
 
-// Index.getInitialProps = function(ctx) {
-//   ctx.store.dispatch(getPosts());
-// };
+Index.getInitialProps = function(ctx) {
+  ctx.store.dispatch(getPosts());
+};
 
 export default connect(state => state)(Index);

@@ -21,6 +21,6 @@ const { composeWithDevTools } = isDev ? require('redux-devtools-extension') : re
 
 
 export default (initialState={}) => {
-  const middlewares = isDev ? [thunk, createLogger()] : [];
+  const middlewares = isDev ? [thunk, createLogger()] : [thunk];
   return createStore(reducers, initialState, composeWithDevTools(applyMiddleware(...middlewares)));
 };

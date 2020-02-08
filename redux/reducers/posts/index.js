@@ -1,20 +1,17 @@
 import { handleActions } from 'redux-actions';
 
-import { GET_POSTS, GET_COMMENTS } from '../../types';
+import { GET_POSTS } from '../../types';
 import {createReducer, baseReducer} from '../utils';
 
 const initialState = {
-  posts:{...baseReducer},
-  comments:{...baseReducer}
+  ...baseReducer
 };
 
 const getPosts = createReducer(GET_POSTS);
-const getComments = createReducer(GET_COMMENTS);
 
 const posts = handleActions(
   {
-    ...getPosts,
-    ...getComments
+    ...getPosts
   },
   initialState,
 );

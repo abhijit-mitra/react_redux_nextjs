@@ -3,7 +3,7 @@ import fetch from 'isomorphic-unfetch';
 import { GET_POSTS } from '../../types';
 
 
-export const getPosts = () => async (dispatch)=>{
+export const getPosts = () => async (dispatch, getState)=>{
   dispatch({type:`${GET_POSTS}_started`});
   try{
     let res = await fetch('https://api.github.com/repos/zeit/next.js');

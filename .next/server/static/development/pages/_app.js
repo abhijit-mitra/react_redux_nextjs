@@ -425,7 +425,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 /* harmony default export */ __webpack_exports__["default"] = (next_redux_wrapper__WEBPACK_IMPORTED_MODULE_3___default()(_redux__WEBPACK_IMPORTED_MODULE_4__["initStore"], {
-  debug: true
+  debug: false
 })(class MyApp extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
   static async getInitialProps({
     Component,
@@ -466,7 +466,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 /*!************************!*\
   !*** ./redux/index.js ***!
   \************************/
-/*! exports provided: initStore */
+/*! exports provided: initStore, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -476,14 +476,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! redux-thunk */ "redux-thunk");
 /* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(redux_thunk__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./reducers */ "./redux/reducers/index.js");
+/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux-logger */ "redux-logger");
+/* harmony import */ var redux_logger__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(redux_logger__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./reducers */ "./redux/reducers/index.js");
 
 
- // in this file we are initializing the redux store by passing initial state and instance of reducer, we are applying thunk middleware to support async data flow.
+
 
 const initStore = (initialState = {}) => {
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_2__["default"], initialState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_3__["default"], initialState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a));
 };
+const isDev = true;
+const {
+  composeWithDevTools
+} = isDev ? __webpack_require__(/*! redux-devtools-extension */ "redux-devtools-extension") : __webpack_require__(/*! redux-devtools-extension/logOnlyInProduction */ "redux-devtools-extension/logOnlyInProduction");
+/* harmony default export */ __webpack_exports__["default"] = ((initialState = {}) => {
+  const middlewares = isDev ? [redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a, Object(redux_logger__WEBPACK_IMPORTED_MODULE_2__["createLogger"])()] : [redux_thunk__WEBPACK_IMPORTED_MODULE_1___default.a];
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers__WEBPACK_IMPORTED_MODULE_3__["default"], initialState, composeWithDevTools(Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(...middlewares)));
+});
+
+/***/ }),
+
+/***/ "./redux/reducers/comments/index.js":
+/*!******************************************!*\
+  !*** ./redux/reducers/comments/index.js ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var redux_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux-actions */ "redux-actions");
+/* harmony import */ var redux_actions__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux_actions__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../types */ "./redux/types.js");
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils */ "./redux/reducers/utils.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+const initialState = _objectSpread({}, _utils__WEBPACK_IMPORTED_MODULE_2__["baseReducer"]);
+
+const getComments = Object(_utils__WEBPACK_IMPORTED_MODULE_2__["createReducer"])(_types__WEBPACK_IMPORTED_MODULE_1__["GET_COMMENTS"]);
+const comments = Object(redux_actions__WEBPACK_IMPORTED_MODULE_0__["handleActions"])(_objectSpread({}, getComments), initialState);
+/* harmony default export */ __webpack_exports__["default"] = (comments);
 
 /***/ }),
 
@@ -499,10 +540,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "redux");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(redux__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _posts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./posts */ "./redux/reducers/posts/index.js");
+/* harmony import */ var _comments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./comments */ "./redux/reducers/comments/index.js");
+
 
 
 const rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  posts: _posts__WEBPACK_IMPORTED_MODULE_1__["default"]
+  posts: _posts__WEBPACK_IMPORTED_MODULE_1__["default"],
+  comments: _comments__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (rootReducer);
 
@@ -530,13 +574,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-const initialState = {
-  posts: _objectSpread({}, _utils__WEBPACK_IMPORTED_MODULE_2__["baseReducer"]),
-  comments: _objectSpread({}, _utils__WEBPACK_IMPORTED_MODULE_2__["baseReducer"])
-};
+
+const initialState = _objectSpread({}, _utils__WEBPACK_IMPORTED_MODULE_2__["baseReducer"]);
+
 const getPosts = Object(_utils__WEBPACK_IMPORTED_MODULE_2__["createReducer"])(_types__WEBPACK_IMPORTED_MODULE_1__["GET_POSTS"]);
-const getComments = Object(_utils__WEBPACK_IMPORTED_MODULE_2__["createReducer"])(_types__WEBPACK_IMPORTED_MODULE_1__["GET_COMMENTS"]);
-const posts = Object(redux_actions__WEBPACK_IMPORTED_MODULE_0__["handleActions"])(_objectSpread({}, getPosts, {}, getComments), initialState);
+const posts = Object(redux_actions__WEBPACK_IMPORTED_MODULE_0__["handleActions"])(_objectSpread({}, getPosts), initialState);
 /* harmony default export */ __webpack_exports__["default"] = (posts);
 
 /***/ }),
@@ -665,6 +707,39 @@ module.exports = require("redux");
 /***/ (function(module, exports) {
 
 module.exports = require("redux-actions");
+
+/***/ }),
+
+/***/ "redux-devtools-extension":
+/*!*******************************************!*\
+  !*** external "redux-devtools-extension" ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-devtools-extension");
+
+/***/ }),
+
+/***/ "redux-devtools-extension/logOnlyInProduction":
+/*!***************************************************************!*\
+  !*** external "redux-devtools-extension/logOnlyInProduction" ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-devtools-extension/logOnlyInProduction");
+
+/***/ }),
+
+/***/ "redux-logger":
+/*!*******************************!*\
+  !*** external "redux-logger" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("redux-logger");
 
 /***/ }),
 
