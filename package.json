@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "CONFG_ENV=prod next build",
+    "local": "CONFG_ENV=dev next dev",
+    "dev": "CONFG_ENV=dev next build",
+    "stg": "CONFG_ENV=stg next build",
+    "prod": "CONFG_ENV=prod next build",
     "start": "CONFG_ENV=prod next start -p $PORT",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run prod"
     },
   "keywords": [],
   "author": "",
