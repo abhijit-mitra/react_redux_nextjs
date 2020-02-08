@@ -8,7 +8,8 @@
     "local": "CONFG_ENV=dev next",
     "dev": "CONFG_ENV=dev next build && CONFG_ENV=dev next start",
     "stg": "CONFG_ENV=stg next build && CONFG_ENV=stg next start",
-    "prod": "CONFG_ENV=prod next build && CONFG_ENV=prod next start"
+    "prod": "CONFG_ENV=prod next build && CONFG_ENV=prod next start",
+    "heroku-postbuild": "CONFG_ENV=prod next build"
   },
   "keywords": [],
   "author": "",

@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { getPosts } from './posts';\nimport { getComments } from './comments';\nexport { getPosts, getComments };","map":null,"metadata":{},"sourceType":"module"}

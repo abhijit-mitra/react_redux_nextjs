@@ -1,1 +1,0 @@
-{"ast":null,"code":"import { getPosts } from './posts';\nexport { getPosts };","map":{"version":3,"sources":["/Users/abhijit/Documents/Projects/React/ssr_next_js/redux/actions/index.js"],"names":["getPosts"],"mappings":"AAAA,SAAQA,QAAR,QAAuB,SAAvB;AAEA,SAAQA,QAAR","sourcesContent":["import {getPosts} from './posts';\n\nexport {getPosts};\n"]},"metadata":{},"sourceType":"module"}

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import {getPosts} from '../redux/actions';
 import {Button} from '../components/atoms/';
+import style from './Button.module.css';
 
 const Index = memo((props) => (
     <>
@@ -21,6 +22,10 @@ const Index = memo((props) => (
       <Button>
         Enjoy
       </Button>
+      <Button>
+        Enjoy2
+      </Button>
+      <div className={style.primary}></div>
     </>
   ));
 

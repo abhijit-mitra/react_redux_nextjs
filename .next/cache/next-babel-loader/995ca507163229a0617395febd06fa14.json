@@ -1,1 +1,0 @@
-{"ast":null,"code":"export const GET_POSTS = 'get_posts';\nexport const GET_COMMENTS = 'get_comments';","map":null,"metadata":{},"sourceType":"module"}
