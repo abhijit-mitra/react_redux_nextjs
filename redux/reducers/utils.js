@@ -4,7 +4,7 @@ export const baseReducer = {
   error:null,
 }
 
-export const createReducer = (type) =>(
+export const createReducer = (type, initialState) =>(
   {
     [`${type}_started`]: (state = initialState, {payload}) =>
       ({

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import React from \"react\";\nvar __jsx = React.createElement;\nimport { useRouter } from 'next/router';\nexport const Comment = props => {\n  const {\n    query\n  } = useRouter();\n  return __jsx(\"h3\", null, query.commentId);\n};\nexport default Comment;","map":null,"metadata":{},"sourceType":"module"}

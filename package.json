@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "local": "CONFG_ENV=dev next",
-    "dev": "CONFG_ENV=dev next build && next start",
-    "stg": "CONFG_ENV=stg next build && next start",
-    "prod": "CONFG_ENV=prod next build && next start"
+    "dev": "CONFG_ENV=dev next build && CONFG_ENV=dev next start",
+    "stg": "CONFG_ENV=stg next build && CONFG_ENV=stg next start",
+    "prod": "CONFG_ENV=prod next build && CONFG_ENV=prod next start"
   },
   "keywords": [],
   "author": "",

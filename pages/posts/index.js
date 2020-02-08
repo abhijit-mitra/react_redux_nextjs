@@ -1,12 +1,24 @@
-import Link from 'next/link';
+import {memo, useEffect, useState} from 'react';
+import { connect } from 'react-redux';
 
-const Posts = (props)=>(
-  <h1>
-    All Posts
-    <Link href="/posts/[postId]" as="/posts/1">
-      <a>Get Post Details</a>
-    </Link>
-  </h1>
-)
+import {getComments} from '../../redux/actions';
 
-export default Posts;
+const Posts = memo((props) => {
+  useEffect(()=>{
+    props.getComments();
+  },[])
+  return(
+    <>
+      <h1>Posts</h1>
+      <h1>{props.isFetching?'...Loading':props.data&& props.data.size}</h1>
+    </>
+  );
+});
+
+Posts.getInitialProps = async function(ctx) {
+  if(ctx.isServer){
+      await ctx.store.dispatch(getComments());
+  }
+};
+
+export default connect(state=>state.comments,{getComments})(Posts);

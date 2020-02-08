@@ -7,7 +7,7 @@ const initialState = {
   ...baseReducer
 };
 
-const getComments = createReducer(GET_COMMENTS);
+const getComments = createReducer(GET_COMMENTS, initialState);
 
 const comments = handleActions(
   {

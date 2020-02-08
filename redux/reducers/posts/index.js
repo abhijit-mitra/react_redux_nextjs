@@ -7,7 +7,7 @@ const initialState = {
   ...baseReducer
 };
 
-const getPosts = createReducer(GET_POSTS);
+const getPosts = createReducer(GET_POSTS, initialState);
 
 const posts = handleActions(
   {
