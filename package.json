@@ -10,12 +10,9 @@
     "prod": "CONFG_ENV=prod next build",
     "start": "CONFG_ENV=prod next start -p $PORT",
     "heroku-postbuild": "npm run prod",
-    "eslint": "eslint --init",
-    "linting-check":"pre-commit.sh"
+    "eslint": "eslint --init"
   },
-  "pre-commit":[
-    "linting-check"
-  ],
+  "pre-commit": [],
   "keywords": [],
   "author": "",
   "license": "ISC",

@@ -23,7 +23,7 @@ const Index = memo((props) => (
     <Button>
         Enjoy2
     </Button>
-    <div className={style.primary}></div>
+    <div className={style.primary}>Hi</div>
   </>
 ));
 
