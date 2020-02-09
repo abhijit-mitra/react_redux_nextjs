@@ -11,8 +11,11 @@
     "start": "CONFG_ENV=prod next start -p $PORT",
     "heroku-postbuild": "npm run prod",
     "eslint": "eslint --init",
-    "precommit":"pre-commit.sh",
+    "linting-check":"pre-commit.sh"
   },
+  "pre-commit":[
+    "linting-check"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -21,6 +24,7 @@
     "js-cookie": "^2.2.1",
     "next": "^9.2.1",
     "next-redux-wrapper": "^4.0.1",
+    "pre-commit": "^1.2.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-redux": "^7.1.3",
