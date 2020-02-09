@@ -2,7 +2,7 @@ import { Provider } from 'react-redux';
 import App from 'next/app';
 import Head from 'next/head';
 import withRedux from 'next-redux-wrapper';
-import { initStore } from '../redux';
+import initStore from '../redux';
 
 export default withRedux(initStore, { debug: true })(
   class MyApp extends App {
