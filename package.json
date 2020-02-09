@@ -10,7 +10,8 @@
     "prod": "CONFG_ENV=prod next build",
     "start": "CONFG_ENV=prod next start -p $PORT",
     "heroku-postbuild": "npm run prod",
-    "eslint": "eslint --init"
+    "eslint": "eslint --init",
+    "precommit":"pre-commit.sh",
   },
   "keywords": [],
   "author": "",
