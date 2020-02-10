@@ -22,11 +22,9 @@
       "git add"
     ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
+  "pre-commit":[
+    "lint-staged"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
