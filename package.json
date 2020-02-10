@@ -20,10 +20,11 @@
         "./node_modules/.bin/eslint",
         "git add"
       ]
-    }
+    },
+    "eslint-test":"./pre-commit.sh"
   },
   "pre-commit":[
-    "./pre-commit.sh"
+    "eslint-test"
   ],
   "keywords": [],
   "author": "",
