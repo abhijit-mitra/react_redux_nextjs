@@ -8,7 +8,6 @@ import style from './Button.module.css';
 export const config = {amp: 'hybrid'};
 
 const Index = memo((props) => {
-  const isAmp = useAmp();
   return (
     <>
       <h1>Home Page</h1>
