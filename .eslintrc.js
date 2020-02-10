@@ -24,6 +24,7 @@ module.exports = {
   ],
   'rules': {
     "react/react-in-jsx-scope": "off",
+    "react/prop-types": [1],
     "require-jsdoc": ["error", {
         "require": {
             "FunctionDeclaration": true,
