@@ -1,19 +1,19 @@
-import { handleActions } from 'redux-actions';
+import {handleActions} from 'redux-actions';
 
-import { GET_COMMENTS } from '../../types';
+import {GET_COMMENTS} from '../../types';
 import {createReducer, baseReducer} from '../utils';
 
 const initialState = {
-  ...baseReducer
+  ...baseReducer,
 };
 
 const getComments = createReducer(GET_COMMENTS, initialState);
 
 const comments = handleActions(
-  {
-    ...getComments
-  },
-  initialState,
+    {
+      ...getComments,
+    },
+    initialState,
 );
 
 export default comments;

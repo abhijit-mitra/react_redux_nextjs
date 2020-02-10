@@ -11,21 +11,20 @@
     "start": "CONFG_ENV=prod next start -p $PORT",
     "heroku-postbuild": "npm run prod",
     "eslint": "eslint --init",
-    "lint:js": "eslint . --ext .js,.jsx",
+    "lint:js": "eslint . --ext .js",
     "lint:js:fix": "npm run lint:js -- --fix",
     "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
     "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --",
-    "lint-staged": {
-      "src/**/*.js": [
-        "./node_modules/.bin/eslint",
-        "git add"
-      ]
-    },
-    "eslint-test": "./pre-commit.sh"
+    "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix"
   },
-  "pre-commit": [
-    "eslint-test"
-  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": ["./node_modules/.bin/eslint — fix", "git add"]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

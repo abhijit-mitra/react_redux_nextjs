@@ -1,3 +1,3 @@
 module.exports ={
-  'NAME':'Sumit'
-}
+  'NAME': 'Sumit',
+};

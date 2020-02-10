@@ -1,19 +1,19 @@
-import { handleActions } from 'redux-actions';
+import {handleActions} from 'redux-actions';
 
-import { GET_POSTS } from '../../types';
+import {GET_POSTS} from '../../types';
 import {createReducer, baseReducer} from '../utils';
 
 const initialState = {
-  ...baseReducer
+  ...baseReducer,
 };
 
 const getPosts = createReducer(GET_POSTS, initialState);
 
 const posts = handleActions(
-  {
-    ...getPosts
-  },
-  initialState,
+    {
+      ...getPosts,
+    },
+    initialState,
 );
 
 export default posts;
