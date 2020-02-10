@@ -29,17 +29,7 @@ const Index = memo((props) => {
         Enjoy2
       </Button>
       <div className={style.primary}>Hi</div>
-      {
-        isAmp ?
-        <amp-img
-          width="300"
-          height="300"
-          src="/test_img.jpeg"
-          alt="a cool image"
-          layout="responsive"
-        /> :
       <img width="300" height="300" src="/test_img.jpeg" alt="a cool image"/>
-      }
     </>
   );
 },
