@@ -1,6 +1,5 @@
 import {memo} from 'react';
 import Link from 'next/link';
-import {connect} from 'react-redux';
 
 import {Button} from '../components/atoms/';
 import style from './Button.module.css';
