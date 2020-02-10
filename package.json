@@ -21,9 +21,9 @@
         "git add"
       ]
     },
-    "eslint-test":"./pre-commit.sh"
+    "eslint-test": "./pre-commit.sh"
   },
-  "pre-commit":[
+  "pre-commit": [
     "eslint-test"
   ],
   "keywords": [],
@@ -47,6 +47,7 @@
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.18.3",
     "husky": "^4.2.1",
-    "lint-staged": "^10.0.7"
+    "lint-staged": "^10.0.7",
+    "pre-commit": "^1.2.2"
   }
 }

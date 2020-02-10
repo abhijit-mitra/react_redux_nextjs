@@ -1,7 +1,7 @@
 import {memo} from 'react';
 import Link from 'next/link';
 import {useAmp} from 'next/amp';
-import {connect} from 'react-redux';
+import {connect, compose} from 'react-redux';
 
 import {Button} from '../components/atoms/';
 import style from './Button.module.css';
