@@ -17,10 +17,12 @@
     "lint:scss:fix": "stylelint 'src/**/*.scss' --syntax scss --"
   },
   "lint-staged": {
-    "src/**/*.js": [
-      "./node_modules/.bin/eslint",
-      "git add"
-    ]
+      "src/**/*.{js,jsx}": [
+        "eslint . --fix", "git add"
+      ],
+      "src/**/*.scss": [
+        "stylelint --syntax scss --fix", "git add"
+      ]
   },
   "husky": {
     "hooks": {
