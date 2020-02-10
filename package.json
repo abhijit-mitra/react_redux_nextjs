@@ -18,7 +18,7 @@
     "pretest": "./node_modules/.bin/eslint --ignore-path .gitignore . --fix",
     "lint-staged": {
       "*.js": ["./node_modules/.bin/eslint — fix", "git add"]
-    },
+    }
   },
   "husky": {
     "hooks": {
