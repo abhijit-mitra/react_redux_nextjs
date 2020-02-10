@@ -23,7 +23,7 @@
     }
   },
   "pre-commit":[
-    "lint-staged"
+    "./pre-commit.sh"
   ],
   "keywords": [],
   "author": "",
